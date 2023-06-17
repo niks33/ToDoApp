@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryColor</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:editTextColor">@color/black</item>
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+        <item name="android:statusBarColor">@color/secondaryColor</item>
+    </style>
+
+    <style name="FABShapeAppearanceOverlay" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/bg_round_corner_full</item>
+        <item name="android:textSize">@dimen/primary_btn_txt_size</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Button.Secondary" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/bg_round_corner_outline_full</item>
+        <item name="android:textSize">@dimen/primary_btn_txt_size</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/primaryColor</item>
+    </style>
+
+    <style name="CustomAlertTheme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
+    </style>
+</resources>

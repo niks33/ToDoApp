@@ -1,0 +1,6 @@
+
+rootProject.name = "ToDoApp"
+include ':app'
+include ':gui'
+include ':base'
+include ':database'

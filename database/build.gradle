@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.example.app.database'
+    def ext = rootProject.extensions.getByName('ext')
+
+    compileSdkVersion ext.compile_sdk_version
+    buildToolsVersion ext.build_tools_version
+
+    defaultConfig {
+        minSdkVersion ext.min_sdk_version
+        targetSdkVersion ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    def appDependencies = rootProject.ext.appDependencies
+
+    api appDependencies.coroutines
+    api appDependencies.coroutinesAndroid
+    api appDependencies.kotlinStdlibJdk7
+    api appDependencies.timber
+    api appDependencies.hiltAndroid
+    api appDependencies.roomDatabase
+    api appDependencies.roomKotlin
+    kapt appDependencies.hiltCompiler
+    kapt appDependencies.roomCompiler
+
+    def testDependencies = rootProject.ext.testDependencies
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.junitAndroidX
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.list_task.TaskListFragment">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ib_back"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:src="@drawable/ic_back"
+        android:backgroundTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ib_options"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:src="@drawable/ic_options"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_marginTop="@dimen/margin_btw_two_views_small"
+        android:layout_marginHorizontal="@dimen/margin_btw_two_views_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task_list"
+        android:textSize="28sp"
+        app:layout_constraintTop_toBottomOf="@id/ib_back"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_task"
+        android:background="@drawable/bg_outine_round_corner"
+        android:paddingHorizontal="@dimen/padding_16dp"
+        android:paddingTop="@dimen/padding_16dp"
+        android:paddingBottom="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/margin_btw_two_views_small"
+        android:layout_marginHorizontal="@dimen/margin_btw_two_views_small"
+        android:layout_marginTop="@dimen/margin_btw_two_views_big"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:itemCount="6"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+
+    <TextView
+        android:id="@+id/tv_empty_list_msg"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You have not added any task yet, select + button to add new task"
+        android:layout_marginHorizontal="@dimen/margin_btw_two_views_very_big"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:backgroundTint="@color/primaryLightColor"
+        android:layout_margin="@dimen/margin_btw_two_views_small"
+        android:src="@drawable/ic_add"
+        app:shapeAppearanceOverlay="@style/FABShapeAppearanceOverlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

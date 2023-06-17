@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#6750A4</color>
+    <color name="primaryLightColor">#ECE6F0</color>
+    <color name="primaryDarkColor">#6750A4</color>
+
+    <color name="secondaryColor">#A14AAD</color>
+    <color name="secondaryLightColor">#AD84B3</color>
+    <color name="secondaryDarkColor">#A14AAD</color>
+    <color name="orange_dark">#B57522</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="black_60">#60000000</color>
+    <color name="red">#EF0000</color>
+
+</resources>

@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    namespace 'com.example.app.gui'
+    def ext = rootProject.extensions.getByName("ext")
+    compileSdkVersion ext.compile_sdk_version
+
+
+    defaultConfig {
+        minSdkVersion ext.min_sdk_version
+        targetSdkVersion ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    def appDependencies = rootProject.ext.appDependencies
+
+    api project(':base')
+    api project(':database')
+    api appDependencies.core
+    api appDependencies.material
+    api appDependencies.appcompat
+    api appDependencies.kotlinStdlibJdk7
+    api appDependencies.lifecyleViewModel
+    api appDependencies.lifecyleLiveData
+    api appDependencies.lifecycleRuntime
+    api appDependencies.fragmentKtx
+    api appDependencies.activityKtx
+    api appDependencies.navFragment
+    api appDependencies.navUi
+    api appDependencies.timber
+    api appDependencies.constraintlayout
+    api appDependencies.recyclerview
+    api appDependencies.cardview
+    api appDependencies.hiltAndroid
+    api appDependencies.hiltXNavFrag
+    kapt appDependencies.hiltCompiler
+
+    def testDependencies = rootProject.ext.testDependencies
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.junitAndroidX
+}
